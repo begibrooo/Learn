@@ -39,6 +39,11 @@ def admin_content_kb() -> InlineKeyboardMarkup:
     ])
 
 
+def admin_content_kb_inline() -> InlineKeyboardMarkup:
+    """Same as admin_content_kb — alias for back buttons."""
+    return admin_content_kb()
+
+
 # ════════════════════════════════
 #  USERS
 # ════════════════════════════════

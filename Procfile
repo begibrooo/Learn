@@ -1,1 +1,1 @@
-worker: python learnbot/main.py
+worker: python main.py
