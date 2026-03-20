@@ -1,0 +1,7 @@
+aiogram
+python-dotenv
+aiohttp
+asyncpg
+psycopg2-binary
+yt-dlp
+ffmpeg-python
