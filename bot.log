@@ -2260,3 +2260,53 @@ inline_message_id
 2026-03-20 17:57:36,198 | WARNING | aiogram.dispatcher | Received SIGINT signal
 2026-03-20 17:57:36,199 | INFO | aiogram.dispatcher | Polling stopped for bot @learnasawaken_bot id=8596279476 - 'Learn Bot'
 2026-03-20 17:57:36,200 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-20 19:41:57,197 | INFO | __main__ | Starting LearnBot...
+2026-03-20 19:41:57,199 | INFO | database.db | Database initialized at ./learnbot.db
+2026-03-20 19:41:58,002 | INFO | __main__ | Schedulers started: friday rewards + reminders.
+2026-03-20 19:41:58,003 | INFO | __main__ | Bot started. Polling...
+2026-03-20 19:41:58,003 | INFO | aiogram.dispatcher | Start polling
+2026-03-20 19:41:58,003 | INFO | utils.scheduler | Next Friday reward in 7h 18m
+2026-03-20 19:41:58,198 | INFO | aiogram.dispatcher | Run polling for bot @learnasawaken_bot id=8596279476 - 'Learn Bot'
+2026-03-20 19:42:01,944 | INFO | aiogram.event | Update id=940454759 is handled. Duration 657 ms by bot id=8596279476
+2026-03-20 19:42:03,884 | INFO | aiogram.event | Update id=940454760 is handled. Duration 568 ms by bot id=8596279476
+2026-03-20 19:42:09,830 | INFO | aiogram.event | Update id=940454761 is handled. Duration 570 ms by bot id=8596279476
+2026-03-20 19:42:30,324 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-03-20 19:42:30,325 | INFO | aiogram.dispatcher | Polling stopped for bot @learnasawaken_bot id=8596279476 - 'Learn Bot'
+2026-03-20 19:42:30,325 | INFO | aiogram.dispatcher | Polling stopped
+2026-03-20 19:42:35,075 | INFO | __main__ | Starting LearnBot...
+2026-03-20 19:42:35,077 | INFO | database.db | Database initialized at ./learnbot.db
+2026-03-20 19:42:35,570 | INFO | __main__ | Schedulers started: friday rewards + reminders.
+2026-03-20 19:42:35,570 | INFO | __main__ | Bot started. Polling...
+2026-03-20 19:42:35,571 | INFO | aiogram.dispatcher | Start polling
+2026-03-20 19:42:35,572 | INFO | utils.scheduler | Next Friday reward in 7h 17m
+2026-03-20 19:42:35,716 | INFO | aiogram.dispatcher | Run polling for bot @learnasawaken_bot id=8596279476 - 'Learn Bot'
+2026-03-20 19:42:38,768 | INFO | aiogram.event | Update id=940454762 is handled. Duration 893 ms by bot id=8596279476
+2026-03-20 19:42:40,396 | INFO | aiogram.event | Update id=940454763 is handled. Duration 562 ms by bot id=8596279476
+2026-03-20 19:42:43,250 | INFO | aiogram.event | Update id=940454764 is handled. Duration 407 ms by bot id=8596279476
+2026-03-20 19:42:46,116 | INFO | aiogram.event | Update id=940454765 is handled. Duration 330 ms by bot id=8596279476
+2026-03-20 19:42:47,620 | INFO | aiogram.event | Update id=940454766 is handled. Duration 627 ms by bot id=8596279476
+2026-03-20 19:42:50,292 | INFO | aiogram.event | Update id=940454767 is handled. Duration 179 ms by bot id=8596279476
+2026-03-20 19:42:51,990 | INFO | aiogram.event | Update id=940454768 is handled. Duration 341 ms by bot id=8596279476
+2026-03-20 19:42:54,781 | INFO | aiogram.event | Update id=940454769 is handled. Duration 426 ms by bot id=8596279476
+2026-03-20 19:42:56,973 | INFO | aiogram.event | Update id=940454770 is handled. Duration 613 ms by bot id=8596279476
+2026-03-20 19:42:58,202 | INFO | aiogram.event | Update id=940454771 is handled. Duration 471 ms by bot id=8596279476
+2026-03-20 19:42:59,897 | INFO | aiogram.event | Update id=940454772 is handled. Duration 465 ms by bot id=8596279476
+2026-03-20 19:43:01,385 | INFO | aiogram.event | Update id=940454773 is handled. Duration 439 ms by bot id=8596279476
+2026-03-20 19:43:06,116 | INFO | aiogram.event | Update id=940454774 is handled. Duration 503 ms by bot id=8596279476
+2026-03-20 19:43:07,903 | INFO | aiogram.event | Update id=940454775 is handled. Duration 517 ms by bot id=8596279476
+2026-03-20 19:43:10,056 | INFO | aiogram.event | Update id=940454776 is handled. Duration 603 ms by bot id=8596279476
+2026-03-20 19:43:11,514 | INFO | aiogram.event | Update id=940454777 is handled. Duration 614 ms by bot id=8596279476
+2026-03-20 19:43:13,178 | INFO | aiogram.event | Update id=940454778 is handled. Duration 556 ms by bot id=8596279476
+2026-03-20 19:43:14,789 | INFO | aiogram.event | Update id=940454779 is handled. Duration 408 ms by bot id=8596279476
+2026-03-20 19:43:16,668 | INFO | aiogram.event | Update id=940454780 is handled. Duration 625 ms by bot id=8596279476
+2026-03-20 19:43:18,677 | INFO | aiogram.event | Update id=940454781 is handled. Duration 331 ms by bot id=8596279476
+2026-03-20 19:43:20,440 | INFO | aiogram.event | Update id=940454782 is handled. Duration 699 ms by bot id=8596279476
+2026-03-20 19:43:23,186 | INFO | aiogram.event | Update id=940454783 is handled. Duration 818 ms by bot id=8596279476
+2026-03-20 19:43:24,235 | INFO | aiogram.event | Update id=940454784 is handled. Duration 432 ms by bot id=8596279476
+2026-03-20 19:43:26,189 | INFO | aiogram.event | Update id=940454785 is handled. Duration 468 ms by bot id=8596279476
+2026-03-20 19:43:29,541 | INFO | aiogram.event | Update id=940454786 is handled. Duration 617 ms by bot id=8596279476
+2026-03-20 19:43:31,130 | INFO | aiogram.event | Update id=940454787 is handled. Duration 576 ms by bot id=8596279476
+2026-03-20 19:43:33,020 | INFO | aiogram.event | Update id=940454788 is handled. Duration 412 ms by bot id=8596279476
+2026-03-20 19:43:40,421 | WARNING | aiogram.dispatcher | Received SIGINT signal
+2026-03-20 19:43:40,422 | INFO | aiogram.dispatcher | Polling stopped for bot @learnasawaken_bot id=8596279476 - 'Learn Bot'
+2026-03-20 19:43:40,422 | INFO | aiogram.dispatcher | Polling stopped
