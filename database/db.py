@@ -1,9 +1,17 @@
 import aiosqlite
 import logging
+import os
 from datetime import datetime
 
 logger = logging.getLogger(__name__)
-DB_PATH = "learnbot.db"
+
+# Railway provides a /data volume OR we fall back to current dir
+# Set DATA_DIR env var on Railway to /data for persistence
+DATA_DIR = os.environ.get("DATA_DIR", ".")
+DB_PATH  = os.path.join(DATA_DIR, "learnbot.db")
+
+# Make sure the data directory exists
+os.makedirs(DATA_DIR, exist_ok=True)
 
 
 async def init_db():
@@ -179,13 +187,40 @@ async def init_db():
                 granted_by INTEGER,
                 created_at TEXT DEFAULT (datetime('now'))
             );
+
+            CREATE TABLE IF NOT EXISTS user_badges (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                badge_key TEXT NOT NULL,
+                earned_at TEXT DEFAULT (datetime('now')),
+                UNIQUE(user_id, badge_key)
+            );
+
+            CREATE TABLE IF NOT EXISTS daily_challenges (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                challenge_date TEXT UNIQUE NOT NULL,
+                type TEXT NOT NULL,
+                description TEXT NOT NULL,
+                target_value INTEGER DEFAULT 1,
+                reward_passes INTEGER DEFAULT 1,
+                winner_limit INTEGER DEFAULT 10,
+                created_at TEXT DEFAULT (datetime('now'))
+            );
+
+            CREATE TABLE IF NOT EXISTS challenge_completions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER NOT NULL,
+                challenge_id INTEGER NOT NULL,
+                completed_at TEXT DEFAULT (datetime('now')),
+                UNIQUE(user_id, challenge_id)
+            );
         """)
         await db.commit()
-        logger.info("Database initialized.")
+        logger.info(f"Database initialized at {DB_PATH}")
 
 
 async def migrate_db():
-    """Safe ALTER TABLE migrations for all new columns."""
+    """Safe ALTER TABLE migrations for new columns."""
     cols = [
         ("users", "vip_expires_at",    "TEXT"),
         ("users", "vip_lesson_limit",  "INTEGER DEFAULT 0"),
@@ -198,41 +233,10 @@ async def migrate_db():
         ("required_channels", "invite_link",   "TEXT"),
         ("required_channels", "username",      "TEXT"),
     ]
-    tables_create = [
-        """CREATE TABLE IF NOT EXISTS quizzes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            question TEXT NOT NULL,
-            option_a TEXT NOT NULL, option_b TEXT NOT NULL,
-            option_c TEXT NOT NULL, option_d TEXT NOT NULL,
-            correct TEXT NOT NULL, explanation TEXT, lesson_id INTEGER,
-            created_at TEXT DEFAULT (datetime('now')))""",
-        """CREATE TABLE IF NOT EXISTS quiz_answers (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER NOT NULL, quiz_id INTEGER NOT NULL,
-            answer TEXT NOT NULL, is_correct INTEGER NOT NULL,
-            answered_at TEXT DEFAULT (datetime('now')),
-            UNIQUE(user_id, quiz_id))""",
-        """CREATE TABLE IF NOT EXISTS lesson_ratings (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER NOT NULL, lesson_id INTEGER NOT NULL,
-            rating INTEGER NOT NULL, rated_at TEXT DEFAULT (datetime('now')),
-            UNIQUE(user_id, lesson_id))""",
-        """CREATE TABLE IF NOT EXISTS vip_log (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER NOT NULL, action TEXT NOT NULL,
-            reason TEXT, granted_by INTEGER,
-            created_at TEXT DEFAULT (datetime('now')))""",
-    ]
     async with aiosqlite.connect(DB_PATH) as db:
         for table, col, dfn in cols:
             try:
                 await db.execute(f"ALTER TABLE {table} ADD COLUMN {col} {dfn}")
-                await db.commit()
-            except Exception:
-                pass
-        for sql in tables_create:
-            try:
-                await db.execute(sql)
                 await db.commit()
             except Exception:
                 pass
